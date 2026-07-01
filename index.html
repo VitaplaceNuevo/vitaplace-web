@@ -951,52 +951,6 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
       <a href="tratamientos-listado.html" class="btn btn-outline">Ver todos los tratamientos</a>
     </div>
 
-    <div data-reveal>
-      <div class="carousel-label">
-        <h4>Explora todas las categorías</h4>
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="carPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="carousel-btn" id="carNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
-      </div>
-      <div class="carousel-track" id="carTrack">
-        <div class="carousel-item" data-treat="corporales">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/9475404/pexels-photo-9475404.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Corporales" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM7 22v-6l-2-5a2 2 0 012-3h10a2 2 0 012 3l-2 5v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h5>Corporales</h5><span>Reductivos · Firmeza</span>
-        </div>
-        <div class="carousel-item" data-treat="faciales">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/3851790/pexels-photo-3851790.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Faciales" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M9 13c.6.8 1.7 1.3 3 1.3s2.4-.5 3-1.3M9.5 9.5h.01M14.5 9.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h5>Faciales</h5><span>Limpieza · Rejuvenecimiento</span>
-        </div>
-        <div class="carousel-item" data-treat="masajes">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/9146364/pexels-photo-9146364.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Masajes" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="15" r="4" stroke="currentColor" stroke-width="1.8"/></svg></div>
-          <h5>Masajes</h5><span>Relajación · Descontracturante</span>
-        </div>
-        <div class="carousel-item" data-treat="kinesiologia">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/34297957/pexels-photo-34297957.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Kinesiología" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M2 12h4l2-7 4 14 2-10 2 3h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h5>Kinesiología</h5><span>Rehabilitación · Bienestar</span>
-        </div>
-        <div class="carousel-item" data-treat="postparto">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/4017418/pexels-photo-4017418.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Post Operatorio y Post Parto" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-          <h5>Post Operatorio y Post Parto</h5><span>Recuperación guiada</span>
-        </div>
-        <div class="carousel-item" data-treat="medicina">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/7582568/pexels-photo-7582568.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Medicina Estética" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h5>Medicina Estética</h5><span>Procedimientos avanzados</span>
-        </div>
-        <div class="carousel-item" data-treat="laser">
-          <div class="item-thumb"><img src="https://images.pexels.com/photos/34297951/pexels-photo-34297951.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Depilación Láser" loading="lazy"></div>
-          <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20L18 6M18 6h-4M18 6v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h5>Depilación Láser</h5><span>Diodo · Todo tipo de piel</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1307,11 +1261,6 @@ if(window.matchMedia('(hover: hover)').matches){
     heroBlob.style.setProperty('--my', my+'%');
   });
 }
-
-/* ---------- treatment carousel ---------- */
-const track = document.getElementById('carTrack');
-document.getElementById('carNext').addEventListener('click', ()=> track.scrollBy({left:260, behavior:'smooth'}));
-document.getElementById('carPrev').addEventListener('click', ()=> track.scrollBy({left:-260, behavior:'smooth'}));
 
 /* ---------- testimonial slider ---------- */
 const testTrack = document.getElementById('testTrack');

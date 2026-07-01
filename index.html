@@ -640,6 +640,52 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
   .ebook-copy .eyebrow{justify-content:center;}
   .ebook-visual img{width:220px;}
 }
+
+/* ---------- mega dropdown (Tratamientos) ---------- */
+.dropdown.mega{min-width:320px;max-height:74vh;overflow-y:auto;}
+.mega-cat{position:relative;}
+.mega-cat-row{display:flex;align-items:stretch;gap:2px;}
+.mega-cat-link{
+  flex:1;display:flex;align-items:center;gap:12px;padding:10px 8px 10px 10px;border-radius:10px;
+  color:var(--navy-soft);transition:background .25s,color .25s;min-width:0;
+}
+.mega-cat-link:hover{background:var(--blue-pale);color:var(--blue-deep);}
+.mega-cat-text{display:flex;flex-direction:column;font-weight:700;font-size:.9rem;line-height:1.3;}
+.mega-cat-text small{font-weight:500;font-size:.7rem;color:var(--ink-soft);}
+.mega-chev-btn{
+  width:34px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--ink-soft);transition:background .25s,color .25s,transform .3s;
+}
+.mega-chev-btn:hover{background:var(--blue-pale);color:var(--blue-deep);}
+.mega-chev-btn svg{width:16px;height:16px;}
+.mega-cat:hover .mega-chev-btn, .mega-cat.open .mega-chev-btn{transform:rotate(90deg);color:var(--blue-deep);}
+.mega-sub{
+  position:absolute;left:100%;top:0;margin-left:8px;width:300px;max-height:380px;overflow-y:auto;
+  background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);padding:10px;
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateX(6px);
+  transition:opacity .25s, transform .25s, visibility .25s;z-index:60;
+}
+.mega-cat:hover .mega-sub, .mega-cat.open .mega-sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0);}
+.mega-sub a{display:block;padding:8px 12px;border-radius:8px;font-size:.83rem;color:var(--navy-soft);font-weight:500;line-height:1.3;}
+.mega-sub a:hover{background:var(--blue-pale);color:var(--blue-deep);}
+.mega-sub a.mega-sub-all{margin-top:6px;border-top:1px solid var(--border);padding-top:12px;font-weight:700;color:var(--blue-deep);font-size:.82rem;}
+@media (max-width:900px){
+  .dropdown.mega{position:static;box-shadow:none;background:transparent;padding:0;max-height:none;overflow:visible;}
+  .mega-cat-link{color:#fff;}
+  .mega-cat-link:hover{background:rgba(255,255,255,.1);color:#fff;}
+  .mega-cat-text small{color:#c7d5e5;}
+  .mega-chev-btn{color:#fff;}
+  .mega-chev-btn:hover{background:rgba(255,255,255,.14);color:#fff;}
+  .mega-sub{
+    position:static;margin-left:0;width:auto;transform:none;box-shadow:none;background:rgba(255,255,255,.06);
+    border-radius:0;max-height:0;padding:0;opacity:1;visibility:visible;pointer-events:auto;overflow:hidden;
+    transition:max-height .35s ease, padding .35s ease;
+  }
+  .mega-cat.open .mega-sub{max-height:600px;padding:6px 6px 10px 44px;}
+  .mega-sub a{color:#fff;}
+  .mega-sub a.mega-sub-all{color:#fff;border-top-color:rgba(255,255,255,.18);}
+}
+
 </style>
 </head>
 <body>
@@ -679,15 +725,138 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
             Tratamientos
             <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <div class="dropdown">
-            <a href="#" data-treat="corporales"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM7 22v-6l-2-5a2 2 0 012-3h10a2 2 0 012 3l-2 5v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Corporales</a>
-            <a href="#" data-treat="faciales"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M9 13c.6.8 1.7 1.3 3 1.3s2.4-.5 3-1.3M9.5 9.5h.01M14.5 9.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Faciales</a>
-            <a href="#" data-treat="masajes"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><circle cx="8" cy="9" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="15" r="4" stroke="currentColor" stroke-width="1.8"/></svg></span>Masajes</a>
-            <a href="#" data-treat="kinesiologia"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M2 12h4l2-7 4 14 2-10 2 3h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Kinesiología</a>
-            <a href="#" data-treat="postparto"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>Post Operatorio y Post Parto</a>
-            <a href="#" data-treat="medicina"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Medicina Estética</a>
-            <a href="#" data-treat="laser"><span class="dropdown-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M4 20L18 6M18 6h-4M18 6v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Depilación Láser</a>
-          </div>
+          <div class="dropdown mega">
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="tratamientos-corporales.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM7 22v-6l-2-5a2 2 0 012-3h10a2 2 0 012 3l-2 5v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="mega-cat-text">Corporales<small>10 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Corporales" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="tratamientos-corporales.html#power-sculptfit">Power SculptFit</a>
+          <a href="tratamientos-corporales.html#pushup-sculpt-total">PushUp Sculpt Total</a>
+          <a href="tratamientos-corporales.html#hifu-lift-pro">HIFU Lift Pro</a>
+          <a href="tratamientos-corporales.html#hifu-lipomax">HIFU LipoMax</a>
+          <a href="tratamientos-corporales.html#evaluacion-corporal-vitascan-pro">Evaluación Corporal VitaScan Pro®</a>
+          <a href="tratamientos-corporales.html#masajes-reductivos-y-tonificantes">Masajes Reductivos y Tonificantes</a>
+          <a href="tratamientos-corporales.html#lipoescultura-4-en-1">Lipoescultura 4 en 1</a>
+          <a href="tratamientos-corporales.html#full-carboxiterapia">Full Carboxiterapia</a>
+          <a href="tratamientos-corporales.html#adios-estrias">Adiós Estrías</a>
+          <a href="tratamientos-corporales.html#dualpack-anti-celulitis">Dualpack Anti Celulitis</a>
+          <a href="tratamientos-corporales.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="tratamientos-faciales.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M9 13c.6.8 1.7 1.3 3 1.3s2.4-.5 3-1.3M9.5 9.5h.01M14.5 9.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="mega-cat-text">Faciales<small>6 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Faciales" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="tratamientos-faciales.html#hifu-face-lift">HIFU Face Lift</a>
+          <a href="tratamientos-faciales.html#limpieza-facial-profunda-de-8-pasos">Limpieza Facial Profunda de 8 pasos</a>
+          <a href="tratamientos-faciales.html#rejuvenecimiento-facial-full">Rejuvenecimiento Facial FULL</a>
+          <a href="tratamientos-faciales.html#peeling-quimico-renovacion-total">Peeling Químico Renovación Total</a>
+          <a href="tratamientos-faciales.html#microneedling-total-skin">Microneedling Total Skin</a>
+          <a href="tratamientos-faciales.html#plan-anti-acne">Plan Anti Acné</a>
+          <a href="tratamientos-faciales.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="depilacion-laser.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20L18 6M18 6h-4M18 6v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="mega-cat-text">Depilación Láser<small>2 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Depilación Láser" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="depilacion-laser.html#depilacion-laser-diodo-femenina">Depilación Láser Diodo Femenina</a>
+          <a href="depilacion-laser.html#depilacion-laser-diodo-masculina">Depilación Láser Diodo Masculina</a>
+          <a href="depilacion-laser.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="medicina-estetica.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="mega-cat-text">Medicina Estética<small>9 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Medicina Estética" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="medicina-estetica.html#sculptra-bioestimulador">Sculptra Bioestimulador</a>
+          <a href="medicina-estetica.html#etrebelle-bioestimulador-hibrido">Etrebelle Bioestimulador Híbrido</a>
+          <a href="medicina-estetica.html#perfilado-de-nariz-y-rinomodelacion-masculina">Perfilado de Nariz y Rinomodelación Masculina</a>
+          <a href="medicina-estetica.html#perfilado-de-nariz-y-rinomodelacion">Perfilado de Nariz y Rinomodelación</a>
+          <a href="medicina-estetica.html#aumento-y-perfilado-de-labios">Aumento y Perfilado de Labios</a>
+          <a href="medicina-estetica.html#hilos-revitalizantes-pdo">Hilos Revitalizantes PDO</a>
+          <a href="medicina-estetica.html#toxina-botulinica">Toxina Botulínica</a>
+          <a href="medicina-estetica.html#armonizacion-facial-con-acido-hialuronico">Armonización Facial con Ácido Hialurónico</a>
+          <a href="medicina-estetica.html#lipopapada-enzimatica">Lipopapada Enzimática</a>
+          <a href="medicina-estetica.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="tratamientos-masajes.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="15" r="4" stroke="currentColor" stroke-width="1.8"/></svg></span>
+            <span class="mega-cat-text">Masajes<small>2 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Masajes" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="tratamientos-masajes.html#masajes-reductivos-y-tonificantes">Masajes Reductivos y Tonificantes</a>
+          <a href="tratamientos-masajes.html#masajes-adios-estres">Masajes: ¡Adiós Estrés!</a>
+          <a href="tratamientos-masajes.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="kinesiologia.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M2 12h4l2-7 4 14 2-10 2 3h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="mega-cat-text">Kinesiología<small>1 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Kinesiología" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="kinesiologia.html#kinesiologia-personalizada">Kinesiología Personalizada</a>
+          <a href="kinesiologia.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+      <div class="mega-cat">
+        <div class="mega-cat-row">
+          <a href="post-operatorios.html" class="mega-cat-link">
+            <span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <span class="mega-cat-text">Post Operatorio y Post Parto<small>2 tratamientos</small></span>
+          </a>
+          <button class="mega-chev-btn" type="button" aria-label="Ver tratamientos de Post Operatorio y Post Parto" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mega-sub">
+          <a href="post-operatorios.html#post-operatorio-de-cirugia-plastica">Post Operatorio de Cirugía Plástica</a>
+          <a href="post-operatorios.html#post-parto">Post Parto</a>
+          <a href="post-operatorios.html" class="mega-sub-all">Ver categoría completa →</a>
+        </div>
+      </div>
+    </div>
         </li>
         <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
@@ -753,28 +922,28 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
         <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM7 22v-6l-2-5a2 2 0 012-3h10a2 2 0 012 3l-2 5v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Corporales</h3>
         <p>Reduce centímetros, tonifica y combate la celulitis con tratamientos no invasivos.</p>
-        <a href="#" class="treat-link" data-treat="corporales">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="tratamientos-corporales.html" class="treat-link" data-treat="corporales">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="treat-card" data-reveal data-treat="faciales" style="transition-delay:.08s">
         <div class="treat-thumb"><img src="https://images.pexels.com/photos/3851790/pexels-photo-3851790.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Tratamiento facial en Vitaplace" loading="lazy"></div>
         <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M9 13c.6.8 1.7 1.3 3 1.3s2.4-.5 3-1.3M9.5 9.5h.01M14.5 9.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <h3>Faciales</h3>
         <p>Rostro más firme y radiante, desde limpiezas profundas hasta bioestimulación.</p>
-        <a href="#" class="treat-link" data-treat="faciales">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="tratamientos-faciales.html" class="treat-link" data-treat="faciales">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="treat-card" data-reveal data-treat="laser" style="transition-delay:.16s">
         <div class="treat-thumb"><img src="https://images.pexels.com/photos/34297951/pexels-photo-34297951.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Depilación láser en Vitaplace" loading="lazy"></div>
         <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20L18 6M18 6h-4M18 6v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Depilación Láser</h3>
         <p>Láser diodo para todo tipo de piel, con resultados progresivos y duraderos.</p>
-        <a href="#" class="treat-link" data-treat="laser">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="depilacion-laser.html" class="treat-link" data-treat="laser">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="treat-card" data-reveal data-treat="medicina" style="transition-delay:.24s">
         <div class="treat-thumb"><img src="https://images.pexels.com/photos/7582568/pexels-photo-7582568.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Medicina estética en Vitaplace" loading="lazy"></div>
         <div class="treat-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <h3>Medicina Estética</h3>
         <p>Procedimientos realizados por profesionales certificados, en pocas sesiones.</p>
-        <a href="#" class="treat-link" data-treat="medicina">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="medicina-estetica.html" class="treat-link" data-treat="medicina">Ver más <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
 
@@ -1078,9 +1247,10 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
       <div>
         <h5>Contacto</h5>
         <ul class="foot-contact">
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Viña del Mar, Región de Valparaíso, Chile</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Clínica Estética Vitaplace<br>7 Norte 645 con Av. Libertad, of. 405, Viña del Mar</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Lun a Vie: 10:00 a 19:00 hrs.<br>Sábado: 10:00 a 14:00 hrs.</li>
           <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> +56 9 0000 0000</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 6 10-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> hola@vitaplace.cl</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 6 10-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> info@vitaplace.cl</li>
         </ul>
       </div>
     </div>
@@ -1090,22 +1260,6 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
     </div>
   </div>
 </footer>
-
-<!-- ============ MODAL: plantilla tipo entrada de blog ============ -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-box">
-    <div class="modal-hero">
-      <div id="modalHeroIcon"></div>
-      <button class="modal-close" id="modalClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-meta"><span class="modal-tag" id="modalTag">Categoría</span><span id="modalDuration">Duración estimada</span></div>
-      <h2 id="modalTitle">Título del tratamiento</h2>
-      <div id="modalContent"></div>
-      <a href="tratamientos-listado.html" class="btn btn-primary" id="modalCta">Ver todos los tratamientos</a>
-    </div>
-  </div>
-</div>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -1178,63 +1332,29 @@ function goToSlide(i){
 let autoSlide = setInterval(()=>{ goToSlide((activeSlide+1)%slides.length); }, 6000);
 testTrack.addEventListener('mouseenter', ()=> clearInterval(autoSlide));
 
-/* ---------- treatment modal (plantilla tipo blog) ---------- */
-const treatData = {
-  corporales:{ tag:'Corporales', duration:'45–60 min por sesión',
-    title:'Tratamientos Corporales',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM7 22v-6l-2-5a2 2 0 012-3h10a2 2 0 012 3l-2 5v6" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    content:`<p>Nuestros tratamientos corporales combinan radiofrecuencia, lipoláser y drenaje linfático para reducir centímetros, mejorar la firmeza de la piel y disminuir la apariencia de celulitis.</p>
-    <p>Cada plan comienza con una evaluación personalizada, donde definimos en conjunto contigo el número de sesiones y la combinación de tecnologías más adecuada según tu objetivo.</p>
-    <p><strong>Esta sección funciona como plantilla:</strong> al conectar el sitio a WordPress, cada tratamiento se cargará automáticamente como una entrada individual (post type), reutilizando este mismo diseño.</p>` },
-  faciales:{ tag:'Faciales', duration:'40–50 min por sesión',
-    title:'Tratamientos Faciales',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="1.4"/><path d="M9 13c.6.8 1.7 1.3 3 1.3s2.4-.5 3-1.3M9.5 9.5h.01M14.5 9.5h.01" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>`,
-    content:`<p>Desde limpiezas faciales profundas hasta bioestimuladores de colágeno y HIFU Face Lift, diseñamos rutinas que devuelven luminosidad, firmeza y uniformidad a tu piel.</p>
-    <p>Trabajamos con línea Eucerin como aliado dermocosmético, reforzando cada sesión con productos recomendados para tu tipo de piel.</p>` },
-  laser:{ tag:'Depilación Láser', duration:'20–40 min por zona',
-    title:'Depilación Láser Diodo',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><path d="M4 20L18 6M18 6h-4M18 6v4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    content:`<p>Tecnología láser diodo apta para distintos tipos de piel, con protocolos seguros y resultados progresivos desde las primeras sesiones.</p>
-    <p>Evaluamos tu fototipo de piel antes de comenzar, ajustando la potencia del equipo para máxima efectividad y mínima molestia.</p>` },
-  medicina:{ tag:'Medicina Estética', duration:'Según procedimiento',
-    title:'Medicina Estética',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#fff" stroke-width="1.4"/><path d="M12 8v8M8 12h8" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>`,
-    content:`<p>Procedimientos de medicina estética realizados por profesionales certificados, siempre bajo evaluación médica previa.</p>
-    <p>Pequeños ajustes, grandes resultados: trabajamos con protocolos seguros y resultados naturales.</p>` },
-  masajes:{ tag:'Masajes', duration:'50–60 min por sesión',
-    title:'Masajes Terapéuticos',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="4" stroke="#fff" stroke-width="1.4"/><circle cx="16" cy="15" r="4" stroke="#fff" stroke-width="1.4"/></svg>`,
-    content:`<p>Masajes relajantes y descontracturantes, ideales para complementar tu tratamiento estético o simplemente darte un momento de bienestar.</p>` },
-  kinesiologia:{ tag:'Kinesiología', duration:'Según plan de tratamiento',
-    title:'Kinesiología',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><path d="M2 12h4l2-7 4 14 2-10 2 3h6" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    content:`<p>Planes de rehabilitación y bienestar físico guiados por kinesiólogos profesionales, adaptados a tus necesidades y objetivos.</p>` },
-  postparto:{ tag:'Post Operatorio y Post Parto', duration:'Según etapa de recuperación',
-    title:'Post Operatorio y Post Parto',
-    icon:`<svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>`,
-    content:`<p>Acompañamiento profesional durante tu recuperación post operatoria o post parto, con protocolos seguros y seguimiento personalizado en cada etapa.</p>` }
-};
 
-const modalOverlay = document.getElementById('modalOverlay');
-document.querySelectorAll('[data-treat]').forEach(el=>{
-  el.addEventListener('click', (e)=>{
-    e.preventDefault();
-    const key = el.getAttribute('data-treat');
-    const d = treatData[key];
-    if(!d) return;
-    document.getElementById('modalTag').textContent = d.tag;
-    document.getElementById('modalDuration').textContent = d.duration;
-    document.getElementById('modalTitle').textContent = d.title;
-    document.getElementById('modalContent').innerHTML = d.content;
-    document.getElementById('modalHeroIcon').innerHTML = d.icon;
-    modalOverlay.classList.add('open');
-    document.body.style.overflow='hidden';
-  });
+
+
+/* ---------- click-through to real treatment pages (no popup) ---------- */
+const treatSlugs = {
+  corporales: 'tratamientos-corporales.html',
+  faciales: 'tratamientos-faciales.html',
+  masajes: 'tratamientos-masajes.html',
+  kinesiologia: 'kinesiologia.html',
+  postparto: 'post-operatorios.html',
+  medicina: 'medicina-estetica.html',
+  laser: 'depilacion-laser.html'
+};
+document.querySelectorAll('.treat-card, .carousel-item').forEach(el=>{
+  const key = el.getAttribute('data-treat');
+  if(key && treatSlugs[key]){
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', (e)=>{
+      if(e.target.closest('a')) return; // let inner real link handle its own navigation
+      window.location.href = treatSlugs[key];
+    });
+  }
 });
-function closeModal(){ modalOverlay.classList.remove('open'); document.body.style.overflow=''; }
-document.getElementById('modalClose').addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', (e)=>{ if(e.target === modalOverlay) closeModal(); });
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
 
 /* ---------- contact form (demo, sin backend) ---------- */
 document.getElementById('contactForm').addEventListener('submit', (e)=>{

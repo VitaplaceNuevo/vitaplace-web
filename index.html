@@ -1250,6 +1250,15 @@ document.querySelectorAll('.nav-link:not(#dropdownTrigger), .nav-cta a').forEach
   });
 });
 
+/* ---------- mega dropdown: expand sub-treatments (mobile) ---------- */
+document.querySelectorAll('.mega-chev-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const cat = btn.closest('.mega-cat');
+    const isOpen = cat.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+  });
+});
+
 /* ---------- hero mouse glow ---------- */
 const heroBlob = document.getElementById('heroBlob');
 if(window.matchMedia('(hover: hover)').matches){

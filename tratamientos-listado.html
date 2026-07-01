@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todos los Tratamientos — Vitaplace, Viña del Mar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#132A46; --navy-soft:#2C4A6E; --blue:#6FA9DC; --blue-deep:#3E7DB8; --blue-pale:#E9F2FB;
+  --sage:#7FB35C; --sage-deep:#5F9440; --cream:#F7F4EE; --white:#FFFFFF; --ink:#1F2A37; --ink-soft:#5B6B80;
+  --border:#E4E9F0; --shadow-lg:0 30px 70px -30px rgba(19,42,70,.35); --shadow-sm:0 10px 30px -14px rgba(19,42,70,.25);
+  --radius-blob:63% 37% 54% 46% / 43% 47% 53% 57%; --radius-blob-2:37% 63% 46% 54% / 57% 43% 57% 43%;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--white);line-height:1.65;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--navy);line-height:1.15;letter-spacing:-.01em;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;}
+.eyebrow::before{content:"";width:20px;height:2px;background:var(--sage);border-radius:2px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:100px;font-weight:700;font-size:.9rem;transition:transform .3s, box-shadow .3s, background .3s;}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 14px 26px -12px rgba(19,42,70,.5);}
+.btn-primary:hover{transform:translateY(-3px);background:var(--navy-soft);}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--navy);}
+
+/* top utility + simple header */
+.topbar{background:var(--navy);color:#cfe0f2;font-size:.78rem;}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:9px 32px;}
+.topbar a{color:inherit;}
+.site-header{background:#fff;border-bottom:1px solid var(--border);padding:16px 0;}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-word{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;color:var(--blue-deep);}
+.back-link{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;color:var(--navy-soft);}
+.back-link svg{width:16px;height:16px;}
+
+/* page hero */
+.page-hero{background:linear-gradient(180deg,var(--cream) 0%, #fff 100%);padding:64px 0 50px;text-align:center;}
+.page-hero h1{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:14px;}
+.page-hero p{color:var(--ink-soft);max-width:560px;margin:0 auto;font-size:1.05rem;}
+
+/* listing */
+.listing{padding:70px 0 100px;}
+.listing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.treat-row{
+  display:flex;gap:24px;background:#fff;border:1px solid var(--border);border-radius:24px;
+  padding:22px;transition:transform .35s, box-shadow .35s;
+}
+.treat-row:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.treat-row .thumb{width:130px;height:130px;flex-shrink:0;border-radius:var(--radius-blob);overflow:hidden;}
+.treat-row .thumb img{width:100%;height:100%;object-fit:cover;}
+.treat-row .body{display:flex;flex-direction:column;}
+.treat-row h3{font-size:1.2rem;margin-bottom:8px;}
+.treat-row p{color:var(--ink-soft);font-size:.92rem;margin-bottom:16px;flex:1;}
+.treat-row .tag{font-size:.72rem;font-weight:700;color:var(--blue-deep);background:var(--blue-pale);padding:4px 11px;border-radius:100px;display:inline-block;margin-bottom:10px;width:fit-content;}
+@media (max-width:860px){.listing-grid{grid-template-columns:1fr;}.treat-row{flex-direction:column;}.treat-row .thumb{width:100%;height:170px;border-radius:20px;}}
+
+/* footer mini */
+footer{background:var(--navy);color:#c7d5e5;padding:50px 0;margin-top:40px;}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+footer .logo-word{color:#fff;}
+footer p{font-size:.85rem;color:#a9bcd2;}
+footer a.btn-light{background:#fff;color:var(--navy);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>📍 Viña del Mar, Chile</span>
+    <a href="index.html">Volver al inicio</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg width="36" height="36" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="27" stroke="#6FA9DC" stroke-width="2.5"/>
+        <path d="M18 28 Q22 34 25 34 Q22 28 18 22 Q14 24 18 28Z" fill="#7FB35C"/>
+        <path d="M20 32 L26 40 L42 18" stroke="#3E7DB8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="logo-word">VITAPLACE</span>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Volver al inicio
+    </a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">Nuestros servicios</p>
+    <h1>Todos los tratamientos</h1>
+    <p>Conoce en detalle cada una de nuestras especialidades. Agenda tu evaluación inicial y diseñamos contigo el plan más adecuado.</p>
+  </div>
+</section>
+
+<section class="listing">
+  <div class="wrap">
+    <div class="listing-grid">
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/9475404/pexels-photo-9475404.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Corporales" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Corporales</span>
+          <h3>Tratamientos Corporales</h3>
+          <p>Reduce centímetros, tonifica y combate la celulitis y las estrías con tratamientos no invasivos, diseñados según tu evaluación personalizada.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/3851790/pexels-photo-3851790.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Faciales" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Faciales</span>
+          <h3>Tratamientos Faciales</h3>
+          <p>Luce un rostro más radiante y firme, desde limpiezas profundas hasta bioestimuladores de colágeno y HIFU Face Lift.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/34297951/pexels-photo-34297951.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Depilación Láser" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Depilación Láser</span>
+          <h3>Depilación Láser Diodo</h3>
+          <p>Dile adiós a la cera y la máquina de afeitar. Tecnología láser diodo para todo tipo de piel, con resultados progresivos y duraderos.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/7582568/pexels-photo-7582568.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Medicina Estética" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Medicina Estética</span>
+          <h3>Medicina Estética</h3>
+          <p>Pequeños cambios, grandes resultados. Procedimientos realizados por profesionales certificados, siempre bajo evaluación médica previa.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/9146364/pexels-photo-9146364.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Masajes" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Masajes</span>
+          <h3>Masajes Terapéuticos</h3>
+          <p>Masajes relajantes y descontracturantes, ideales para complementar tu tratamiento estético o darte un momento de bienestar.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/34297957/pexels-photo-34297957.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Kinesiología" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Kinesiología</span>
+          <h3>Kinesiología</h3>
+          <p>Planes de rehabilitación y bienestar físico guiados por kinesiólogos profesionales, adaptados a tus necesidades y objetivos.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+      <div class="treat-row">
+        <div class="thumb"><img src="https://images.pexels.com/photos/4017418/pexels-photo-4017418.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Post Operatorio y Post Parto" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Post Operatorio y Post Parto</span>
+          <h3>Post Operatorio y Post Parto</h3>
+          <p>Acompañamiento profesional durante tu recuperación, con protocolos seguros y seguimiento personalizado en cada etapa.</p>
+          <a href="index.html#contacto" class="btn btn-primary">Agendar hora</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg width="30" height="30" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="27" stroke="#6FA9DC" stroke-width="2.5"/>
+        <path d="M18 28 Q22 34 25 34 Q22 28 18 22 Q14 24 18 28Z" fill="#7FB35C"/>
+        <path d="M20 32 L26 40 L42 18" stroke="#8FC3ED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="logo-word">VITAPLACE</span>
+    </a>
+    <p>© <span id="year"></span> Vitaplace — Clínica Estética en Viña del Mar.</p>
+    <a href="index.html#contacto" class="btn btn-primary" style="background:#fff;color:var(--navy);">Agendar hora</a>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1244,6 +1244,17 @@ footer .flinks a:hover{color:#fff;padding-left:4px;}
 
 
 <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- reveal on scroll ---------- */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+  });
+},{threshold:.15});
+revealEls.forEach(el=>io.observe(el));
+
 const navInner = document.getElementById('navInner');
 const burgerBtn = document.getElementById('burgerBtn');
 burgerBtn.addEventListener('click', ()=>{
@@ -1286,7 +1297,6 @@ if(window.matchMedia('(hover: hover)').matches){
     heroBlob.style.setProperty('--my', my+'%');
   });
 }
-
 
 </script>
 </body>
